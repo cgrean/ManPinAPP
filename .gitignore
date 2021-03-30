@@ -31,3 +31,5 @@ release/
 local.properties
 infer-out/
 AnyMarvel.jks
+
+com/mp/android/apps/monke/monkeybook/dao
