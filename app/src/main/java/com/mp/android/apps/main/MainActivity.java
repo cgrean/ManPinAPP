@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -82,6 +83,9 @@ public class MainActivity extends StoryboardActivity implements View.OnClickList
         bookCollectionFragment = new BookCollectionFragment();
         showFragment(mainFragment);
         initViews();
+
+//        String str = BASE64Utils.StrToBASE64("cid=1&bid=6d5a3e2bf7918bebdbbc16c29b56f5a5");
+//        Log.d("BASE64Utils",str);
     }
 
     private void initViews() {

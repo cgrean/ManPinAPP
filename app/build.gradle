@@ -90,6 +90,7 @@ dependencies {
     //For Lifecycles, LiveData, and ViewModel
     implementation 'androidx.lifecycle:lifecycle-runtime:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation files('libs\\sun.misc.BASE64Decoder.jar')
     annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
     //For Room
     implementation 'androidx.room:room-runtime:2.0.0'
