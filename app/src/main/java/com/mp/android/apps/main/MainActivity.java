@@ -86,28 +86,33 @@ public class MainActivity extends StoryboardActivity implements View.OnClickList
         showFragment(mainFragment);
         initViews();
 
-//        String str = BASE64Utils.StrToBASE64("cid=1&bid=6d5a3e2bf7918bebdbbc16c29b56f5a5");
-//        Log.d("BASE64Utils",str);
+        findViewById(R.id.btn_ins_novel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String str = BASE64Utils.StrToBASE64("cid=1&bid=6d5a3e2bf7918bebdbbc16c29b56f5a5");
+                //Log.d("BASE64Utils",str);
 
-        CollBookBean mCollBook = new CollBookBean();
-        mCollBook.set_id("c2b6216138f44223ff6fd8b9092337dd");
+                CollBookBean mCollBook = new CollBookBean();
+                mCollBook.set_id("c2b6216138f44223ff6fd8b9092337dd");
 //                mCollBook.setChaptersCount(Integer.valueOf(readBook.getChapter_count()));
-        mCollBook.setCover("https://img.sg.goldenmob.com/img/c2b6216138f44223ff6fd8b9092337dd/7b1e649369711de4bc1f09d024c5c457-208.jpg");
-        mCollBook.setTitle("It Ends with Us");
-        StringBuilder readBookUrl = new StringBuilder("https://test.insnovel.com")
-                .append("/api/user/chapters?bookId=")
-                .append("c2b6216138f44223ff6fd8b9092337dd")
-                .append("&channel=")
-                .append("1000");
-        mCollBook.setBookChapterUrl(readBookUrl.toString());
+                mCollBook.setCover("https://img.sg.goldenmob.com/img/c2b6216138f44223ff6fd8b9092337dd/7b1e649369711de4bc1f09d024c5c457-208.jpg");
+                mCollBook.setTitle("It Ends with Us");
+                StringBuilder readBookUrl = new StringBuilder("https://test.insnovel.com")
+                        .append("/api/user/chapters?bookId=")
+                        .append("c2b6216138f44223ff6fd8b9092337dd")
+                        .append("&channel=")
+                        .append("1000");
+                mCollBook.setBookChapterUrl(readBookUrl.toString());
 //                ARouter.getInstance().build(ARouterPath.InsNovelReadActivity)
 //                        .withBoolean("extra_coll_book", false)
 //                        .withParcelable("extra_is_collected", mCollBook)
 //                        .navigation(mActivity);
-        Intent intent = new Intent(this, ReadActivity.class);
-        intent.putExtra(ReadActivity.EXTRA_IS_COLLECTED, false);
-        intent.putExtra(ReadActivity.EXTRA_COLL_BOOK, mCollBook);
-        startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ReadActivity.class);
+                intent.putExtra(ReadActivity.EXTRA_IS_COLLECTED, false);
+                intent.putExtra(ReadActivity.EXTRA_COLL_BOOK, mCollBook);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViews() {
