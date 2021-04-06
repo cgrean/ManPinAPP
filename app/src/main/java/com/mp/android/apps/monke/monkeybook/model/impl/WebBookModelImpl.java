@@ -77,6 +77,9 @@ public class WebBookModelImpl {
                 return GxwztvBookModelImpl.getInstance().getBookChapters(collBookBean);
             case ContentYb3ModelImpl.TAG:
                 return ContentYb3ModelImpl.getInstance().getBookChapters(collBookBean);
+            case InsNovelBookModelImpl.TAG:
+            case InsNovelBookModelImpl.TAG_TEST:
+                return InsNovelBookModelImpl.getInstance().getBookChapters(collBookBean);
             default:
                 return null;
         }
@@ -105,6 +108,9 @@ public class WebBookModelImpl {
                 return GxwztvBookModelImpl.getInstance().getChapterInfo(url);
             case ContentYb3ModelImpl.TAG:
                 return ContentYb3ModelImpl.getInstance().getChapterInfo(url);
+            case InsNovelBookModelImpl.TAG:
+            case InsNovelBookModelImpl.TAG_TEST:
+                return InsNovelBookModelImpl.getInstance().getChapterInfo(url);
             default:
                 return null;
         }

@@ -1,6 +1,8 @@
 package com.mp.android.apps.monke.monkeybook.base;
 
+import com.mp.android.apps.MyApplication;
 import com.mp.android.apps.monke.basemvplib.EncodoConverter;
+import com.mp.android.apps.monke.monkeybook.widget.AddHeaderNovelInterceptor;
 
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
@@ -62,6 +64,33 @@ public abstract class MBaseModelImpl {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return new Retrofit.Builder().baseUrl(url)
+                //增加返回值为字符串的支持(以实体类返回)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                //增加返回值为Oservable<T>的支持
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(clientBuilder.build())
+                .build();
+    }
+
+    protected Retrofit getRetrofitObjectInsNovel(String url) {
+        clientBuilder.hostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session) {
+                return true;
+            }
+        });
+        //创建管理器
+        try {
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+            //为OkHttpClient设置sslSocketFactory
+            clientBuilder.sslSocketFactory(sslContext.getSocketFactory());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        clientBuilder.addInterceptor(new AddHeaderNovelInterceptor(MyApplication.getInstance()));
 
         return new Retrofit.Builder().baseUrl(url)
                 //增加返回值为字符串的支持(以实体类返回)
