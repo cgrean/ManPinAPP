@@ -1249,10 +1249,10 @@ public abstract class PageLoader {
                 paragraph = StringUtils.convertCC(paragraph, mContext);
                 // 重置段落
                 if (!showTitle) {
-                    paragraph = paragraph.replaceAll("\\s", "");
+//                    paragraph = paragraph.replaceAll("\\s", "");
                     // 如果只有换行符，那么就不执行
                     if (paragraph.equals("")) continue;
-                    paragraph = StringUtils.halfToFull("  " + paragraph + "\n");
+//                    paragraph = StringUtils.halfToFull("  " + paragraph + "\n");
                 } else {
                     //设置 title 的顶部间距
                     rHeight -= mTitlePara;

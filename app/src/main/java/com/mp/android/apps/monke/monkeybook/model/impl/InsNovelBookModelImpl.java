@@ -131,7 +131,7 @@ public class InsNovelBookModelImpl extends MBaseModelImpl implements IReaderBook
             StringBuilder content = new StringBuilder();
             for (int i = 0; i < contentEs.size(); i++) {
                 String temp = contentEs.get(i).text();
-                temp = temp.replaceAll(" ", "").replaceAll(" ", "");
+//                temp = temp.replaceAll(" ", "").replaceAll(" ", "");
                 if (temp.length() > 0) {
                     content.append("\u3000\u3000" + temp);
                     if (i < contentEs.size() - 1) {
